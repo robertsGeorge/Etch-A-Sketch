@@ -1,3 +1,7 @@
+function changeColor() {
+  this.style.backgroundColor = "black";
+}
+
 let gridContainer = document.querySelector(".grid-container");
 let gridSquare;
 
@@ -6,13 +10,11 @@ for (let i = 1; i <= 256; i++) {
   gridContainer.appendChild(gridSquare);
 }
 
-allGridSquares = document.querySelectorAll(".grid-container div");
+let allGridSquares = document.querySelectorAll(".grid-container div");
 
 for (let i = 0; i < allGridSquares.length; i++) {
   allGridSquares[i].addEventListener("mouseover", changeColor);
 }
 
-function changeColor() {
-  this.style.backgroundColor = "black";
-}
+let clearButton = document.getElementById("clear")
 
