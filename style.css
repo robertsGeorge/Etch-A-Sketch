@@ -32,7 +32,7 @@ button {
 .grid-container div {
   box-sizing: border-box;
   border: 1px solid lightgray;
-  flex: 1 31.25px;
+  flex: 1 10px;
 }
 /* .grid-container div:hover {
   background-color: red;

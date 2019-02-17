@@ -2,9 +2,15 @@ let buttonClear = document.getElementById("clear");
 let gridContainer = document.querySelector(".grid-container");
 let gridSquare;
 let userSquares;
-let totalNoSquares = 256;
+let totalNoSquares = 2500;
 let allGridSquares;
-let newFlexBasis;
+let newFlexBasis; 
+/* 
+initial flex-basis value for grid square divs is set in style.css as
+500px (the size of the grid container) divided by the number of 
+initial squares per side (calculated as square root of 2500, which is 50)
+resulting in a value of 10px (500 / 50).
+*/
 
 function generateGrid() {
   for (let i = 1; i <= totalNoSquares; i++) {
@@ -36,16 +42,14 @@ function resetGrid() {
   for (let i = 0; i < allGridSquares.length; i++) {
     allGridSquares[i].style.backgroundColor = "white";
   }
-  userSquares = +prompt("How many squares *per side* would you like?", "64");
-  if (userSquares == 0) userSquares = 16;
-  console.log(userSquares);
+  userSquares = +prompt("How many grid squares *per side* would you like?", "100");
+  if (userSquares == 0) userSquares = 50;
   totalNoSquares = userSquares * userSquares;
   removeOldSquares();
   generateGrid();
   addMouseoverEvent();
   resetFlexBasis();
 }
-
 
 generateGrid();
 addMouseoverEvent();
