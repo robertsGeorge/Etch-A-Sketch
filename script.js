@@ -3,6 +3,8 @@ let gridContainer = document.querySelector(".grid-container");
 let gridSquare;
 let userSquares;
 let totalNoSquares = 256;
+let allGridSquares;
+let newFlexBasis;
 
 function generateGrid() {
   for (let i = 1; i <= totalNoSquares; i++) {
@@ -15,9 +17,20 @@ function removeOldSquares() {
     gridContainer.removeChild(gridContainer.firstChild);
   }
 }
-
+function addMouseoverEvent() {
+  allGridSquares = document.querySelectorAll(".grid-container div");
+  for (let i = 0; i < allGridSquares.length; i++) {
+    allGridSquares[i].addEventListener("mouseover", changeColor);
+  }
+}
 function changeColor() {
   this.style.backgroundColor = "black";
+}
+function resetFlexBasis() {
+  newFlexBasis = 500 / userSquares + "px";
+  for (let i = 0; i < allGridSquares.length; i++) {
+    allGridSquares[i].style.flexBasis = newFlexBasis;
+  }
 }
 function resetGrid() {
   for (let i = 0; i < allGridSquares.length; i++) {
@@ -25,21 +38,14 @@ function resetGrid() {
   }
   userSquares = +prompt("How many squares per side would you like the new grid to have?", "64");
   totalNoSquares = userSquares * userSquares;
+  removeOldSquares();
   generateGrid();
+  addMouseoverEvent();
+  resetFlexBasis();
 }
-
-
-
 
 
 generateGrid();
-
-// change gridsquare color when mouse hovers over
-let allGridSquares = document.querySelectorAll(".grid-container div");
-for (let i = 0; i < allGridSquares.length; i++) {
-  allGridSquares[i].addEventListener("mouseover", changeColor);
-}
-
-// change color of grid squares back to white
+addMouseoverEvent();
 buttonClear.addEventListener("click", resetGrid);
 
