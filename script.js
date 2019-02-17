@@ -36,7 +36,9 @@ function resetGrid() {
   for (let i = 0; i < allGridSquares.length; i++) {
     allGridSquares[i].style.backgroundColor = "white";
   }
-  userSquares = +prompt("How many squares per side would you like the new grid to have?", "64");
+  userSquares = +prompt("How many squares *per side* would you like?", "64");
+  if (userSquares == 0) userSquares = 16;
+  console.log(userSquares);
   totalNoSquares = userSquares * userSquares;
   removeOldSquares();
   generateGrid();
