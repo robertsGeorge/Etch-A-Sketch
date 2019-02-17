@@ -1,4 +1,4 @@
-let buttonClear = document.getElementById("clear");
+let buttonClear = document.getElementById("reset");
 let gridContainer = document.querySelector(".grid-container");
 let gridSquare;
 let userSquares;
