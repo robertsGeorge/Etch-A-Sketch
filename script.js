@@ -1,5 +1,6 @@
-let buttonClear = document.getElementById("reset");
+let buttonReset = document.getElementById("reset");
 let buttonColours = document.getElementById("colours");
+let buttonBlack = document.getElementById("black");
 let gridContainer = document.querySelector(".grid-container");
 let gridSquare;
 let userSquares;
@@ -72,9 +73,18 @@ function random_rgb() {
   var o = Math.round, r = Math.random, s = 255;
   return 'rgb(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ')';
 }
+function switchBackToBlack() {
+  allGridSquares = document.querySelectorAll(".grid-container div");
+  
+  for (let i = 0; i < allGridSquares.length; i++) {
+    allGridSquares[i].removeEventListener("mouseover", setRandomColour);
+    allGridSquares[i].addEventListener("mouseover", setBlackColour);
+  }
+}
 
 generateGrid();
 addMouseoverEvent();
-buttonClear.addEventListener("click", resetGrid);
+buttonReset.addEventListener("click", resetGrid);
 buttonColours.addEventListener("click", switchToColours);
+buttonBlack.addEventListener("click", switchBackToBlack);
 
