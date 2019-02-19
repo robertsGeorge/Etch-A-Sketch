@@ -11,22 +11,35 @@ h1 {
   margin-top: 30px;
   text-align: center;
 }
-.buttons-container {
+/* .buttons-container {
   position: absolute;
   top: 260px;
   left: 810px;
-}
+} */
 button {
   display: block;
   width: 70px;
   height: 27px;
-  margin: 30px auto;
+  margin: 20px auto;
   border-radius: 5px;
   font-family: sans-serif;
   font-size: 0.9em;
   background-color: lightgray;
   color: rgb(34, 34, 34);
 }
+#colour-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 170px;
+  margin: 0 auto;
+}
+#reset {
+  color: rgb(103, 1, 1);
+}
+/* .colour-options {
+  display: inline-block;
+} */
+
 /* #reset {
   width: 65px;
   height: 27px;
