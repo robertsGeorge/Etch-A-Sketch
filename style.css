@@ -13,15 +13,19 @@ h1 {
 }
 button {
   display: block;
-  width: 65px;
-  height: 27px;
   margin: 30px auto;
-  /* border: 1px solid black; */
   border-radius: 5px;
   font-family: sans-serif;
   font-size: 1em;
   background-color: lightgray;
-  /* box-shadow: 0px 2px 2px 1px lightgrey; */
+}
+#reset {
+  width: 65px;
+  height: 27px;
+}
+#colours {
+  width: 75px;
+  height: 27px;
 }
 .grid-container {
   background-color: white;

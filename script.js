@@ -1,4 +1,5 @@
 let buttonClear = document.getElementById("reset");
+let buttonColours = document.getElementById("colours");
 let gridContainer = document.querySelector(".grid-container");
 let gridSquare;
 let userSquares;
@@ -26,10 +27,10 @@ function removeOldSquares() {
 function addMouseoverEvent() {
   allGridSquares = document.querySelectorAll(".grid-container div");
   for (let i = 0; i < allGridSquares.length; i++) {
-    allGridSquares[i].addEventListener("mouseover", changeColor);
+    allGridSquares[i].addEventListener("mouseover", setBlackColour);
   }
 }
-function changeColor() {
+function setBlackColour() {
   this.style.backgroundColor = "black";
 }
 function resetFlexBasis() {
@@ -56,8 +57,24 @@ function resetGrid() {
   addMouseoverEvent();
   resetFlexBasis();
 }
+function switchToColours() {
+  allGridSquares = document.querySelectorAll(".grid-container div");
+  
+  for (let i = 0; i < allGridSquares.length; i++) {
+    allGridSquares[i].removeEventListener("mouseover", setBlackColour);
+    allGridSquares[i].addEventListener("mouseover", setRandomColour);
+  }
+}
+function setRandomColour() {
+  this.style.backgroundColor = random_rgb();
+}
+function random_rgb() {
+  var o = Math.round, r = Math.random, s = 255;
+  return 'rgb(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ')';
+}
 
 generateGrid();
 addMouseoverEvent();
 buttonClear.addEventListener("click", resetGrid);
+buttonColours.addEventListener("click", switchToColours);
 
