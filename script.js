@@ -69,6 +69,7 @@ function switchToColours() {
 function setRandomColour() {
   this.style.backgroundColor = random_rgb();
 }
+// I stole the random_rbg() function code snippet below from Stack Overflow
 function random_rgb() {
   var o = Math.round, r = Math.random, s = 255;
   return 'rgb(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ')';
